@@ -21,14 +21,10 @@ Adds support for a local tunnel with ngrok. Based on the [article](https://matth
 Add the following to `wp-config.php`.
 
 ```php
-if ( strpos( $_SERVER['HTTP_X_ORIGINAL_HOST'], 'ngrok' ) !== false ) {
-	if ( isset( $_SERVER['HTTP_X_ORIGINAL_HOST'] ) && $_SERVER['HTTP_X_ORIGINAL_HOST'] === 'https' ) {
-		$server_proto = 'https://';
-	} else {
-		$server_proto = 'http://';
-	}
-	define( 'WP_SITEURL', $server_proto . $_SERVER['HTTP_HOST'] );
-	define( 'WP_HOME', $server_proto . $_SERVER['HTTP_HOST'] );
+/* Check for ngrok tunnel. */
+if ( isset( $_SERVER['HTTP_X_ORIGINAL_HOST'] ) && strpos( $_SERVER['HTTP_X_ORIGINAL_HOST'], 'ngrok' ) !== false ) {
+	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
+	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 	define( 'LOCALTUNNEL_ACTIVE', true );
 }
 ```
