@@ -4,7 +4,7 @@ This is a plugin that contains some handy features for WordPress development.
 
 ## Debug helpers
 
-Contains Symfony / Laravel like dump (and die) helper functions.
+Contains Symfony / Laravel like dump (and die) helper functions. Also includes the [Ray package](https://github.com/spatie/ray) from Spatie.
 
 ```php
 dump( $variable );
@@ -12,6 +12,13 @@ dump( $variable );
 
 ```php
 dd( $variable );
+```
+
+
+```php
+ray()->newScreen();
+ray('Debug text')->green();
+// etc.
 ```
 
 ## ngrok support
