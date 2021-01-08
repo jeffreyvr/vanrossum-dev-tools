@@ -12,7 +12,9 @@
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/includes/ngrok.php';
+require_once __DIR__ . '/includes/ray.php';
 
 if ( ! function_exists( 'd' ) ) {
 	/**
@@ -22,7 +24,6 @@ if ( ! function_exists( 'd' ) ) {
 		call_user_func_array( 'dump', func_get_args() );
 	}
 }
-
 
 if ( ! function_exists( 'dd' ) ) {
 	/**
