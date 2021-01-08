@@ -4,7 +4,7 @@
  * Include a partial and set arguments as variables.
  *
  * @param string $partial The name of the partial file.
- * @param mixed ...$args Additional parameters.
+ * @param mixed  ...$args Additional parameters.
  *
  * @return void
  */
@@ -15,11 +15,11 @@ function vrdt_partial( $partial, ...$args ) {
 		}
 	}
 
-    $file =  plugin_dir_path( __FILE__ ) . '../' . $partial . '.php';
+	$file = plugin_dir_path( __FILE__ ) . '../' . $partial . '.php';
 
-    if ( ! file_exists(  $file ) ) {
-        return;
-    }
+	if ( ! file_exists( $file ) ) {
+		return;
+	}
 
 	include $file;
 }
