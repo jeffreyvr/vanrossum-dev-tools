@@ -1,5 +1,14 @@
 <?php
 
+function vrdt_set_site_url( $value ) {
+	if ( isset( $_SERVER['HTTP_X_ORIGINAL_HOST'] ) ) {
+		return 'http://' . $_SERVER['HTTP_X_ORIGINAL_HOST'];
+	}
+
+	return $value;
+}
+add_filter( 'option_siteurl', 'vrdt_set_site_url' );
+
 /**
  * Check if local tunnel is active.
  *
